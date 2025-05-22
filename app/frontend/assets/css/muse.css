@@ -1,41 +1,97 @@
-/* aca vamos a poner nuestro diseño de las paginas por default
 /* muse.css - estilos personalizados para M.U.S.E */
+:root {
+  --primary: #b58df1;
+  --primary-dark: #8f5de0;
+  --primary-light: #c0a3f8;
+}
 
+/* Encabezado de página */
 .page-header {
-    background: linear-gradient(135deg, #b58df1, #c0a3f8) !important;
-  }
-  
-  .mask.bg-gradient-dark {
-    background: rgba(255, 255, 255, 0.4) !important;
-  }
-  
-  h1,
-  h5,
-  p {
-    font-family: "Inter", sans-serif;
-  }
-  
-  input.form-control {
-    border: 1px solid #b58df1;
-    color: #4c4c4c;
-  }
-  
-  input.form-control:focus {
-    border-color: #a678e2;
-    box-shadow: 0 0 0 0.2rem rgba(181, 141, 241, 0.25);
-  }
-  
-  .btn.bg-gradient-dark {
-    background: linear-gradient(135deg, #a678e2, #8f5de0);
-    border: none;
-  }
-  
-  .btn.bg-gradient-dark:hover {
-    background: linear-gradient(135deg, #925df5, #743fd6);
-  }
-  
-  .form-check-input:checked {
-    background-color: #b58df1;
-    border-color: #b58df1;
-  }
-  
+  background: linear-gradient(135deg, var(--primary), var(--primary-light)) !important;
+}
+
+.mask.bg-gradient-dark {
+  background: rgba(199, 187, 255, 0.4) !important;
+}
+
+/* Tipografía */
+h1, h2, h5, h6, .h1, .h2, .h5, .h6 {
+  color: #3d3a41 !important;
+  font-family: "Inter", sans-serif;
+}
+
+/* Botones */
+.btn.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
+}
+
+.btn-outline-primary {
+  border: 1px solid #f916f9;
+  background-color: transparent;
+  opacity: 0.75;
+  box-shadow: none;
+  color: #de16f9;
+}
+
+.btn.bg-gradient-primary:hover {
+  background: linear-gradient(135deg, var(--primary-dark), #743fd6) !important;
+}
+
+/* Formularios */
+.form-control, .form-select {
+  border: 1px solid var(--primary) !important;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--primary-dark) !important;
+  box-shadow: 0 0 0 0.2rem rgba(181, 141, 241, 0.25) !important;
+}
+
+/* Checkboxes */
+.form-check-input:checked {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+/* Tarjetas */
+.card {
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(181, 141, 241, 0.15) !important;
+}
+
+/* Secciones de competencias */
+.competencia-section {
+  background: rgba(255, 255, 255, 0.8);
+  border-left: 4px solid var(--primary);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0 8px 8px 0;
+}
+/* Cambia TODOS los iconos del sidebar */
+.sidenav .icon-shape {
+  background: #ffffff !important; /* Color lila/morado */
+}
+
+.sidenav .icon-shape svg,
+.sidenav .icon-shape i {
+  color: #3A416F !important; /* Color del icono interior */
+}
+/* Cambiar solo iconos específicos internos */
+.sidenav [href*="perfil"] .icon-shape i {
+  color: #ffffff!important;
+}
+
+/* Cambiar solo iconos específicos */
+.sidenav [href*="perfil"] .icon-shape {
+  background: #CB0C9F!important;
+}
+
+.sidenav [href*="marathons"] .icon-shape {
+  background: #a678e2 !important;
+}
+.settings-icon {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  z-index: 10;
+}
