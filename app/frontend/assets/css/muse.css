@@ -74,7 +74,7 @@ h1, h2, h5, h6, .h1, .h2, .h5, .h6 {
 
 .sidenav .icon-shape svg,
 .sidenav .icon-shape i {
-  color: #3A416F !important; /* Color del icono interior */
+  color: #363f6d !important; /* Color del icono interior */
 }
 /* Cambiar solo iconos específicos internos */
 .sidenav [href*="perfil"] .icon-shape i {

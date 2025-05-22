@@ -2,6 +2,8 @@
 <html lang="es">
 
 <head>
+  <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+  
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>M.U.S.E | Iniciar sesión</title>
@@ -62,23 +64,24 @@
                 <p class="mb-0 text-secondary">Ingresa tu correo y contraseña</p>
               </div>
               <div class="card-body pt-0">
-                <form role="form text-left">
-                  <label class="text-dark">Email</label>
-                  <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Correo" name="email" style="border-radius: 8px;">
-                  </div>
-                  <label class="text-dark">Password</label>
-                  <div class="mb-3">
-                    <input type="password" class="form-control" placeholder="Contraseña" name="password" style="border-radius: 8px;">
-                  </div>
-                  <div class="form-check form-switch ps-0">
-                    <input class="form-check-input ms-0" type="checkbox" id="rememberMe">
-                    <label class="form-check-label text-dark ms-2" for="rememberMe">Recuérdame</label>
-                  </div>
-                  <div class="text-center mt-4">
-                    <button type="button" class="btn bg-gradient-dark w-100 py-2" style="border-radius: 8px;">Iniciar sesión</button>
-                  </div>
-                </form>
+                <form id="login-form" role="form text-left">
+  <label class="text-dark">Email</label>
+  <div class="mb-3">
+    <input type="email" id="email" class="form-control" placeholder="Correo" name="email" style="border-radius: 8px;" required>
+  </div>
+  <label class="text-dark">Password</label>
+  <div class="mb-3">
+    <input type="password" id="password" class="form-control" placeholder="Contraseña" name="password" style="border-radius: 8px;" required>
+  </div>
+  <div class="form-check form-switch ps-0">
+    <input class="form-check-input ms-0" type="checkbox" id="rememberMe">
+    <label class="form-check-label text-dark ms-2" for="rememberMe">Recuérdame</label>
+  </div>
+  <div class="text-center mt-4">
+    <button type="submit" class="btn bg-gradient-dark w-100 py-2" style="border-radius: 8px;">Iniciar sesión</button>
+  </div>
+</form>
+
               </div>
               <div class="card-footer text-center pt-0 px-lg-2 px-1 pb-4">
                 <p class="mb-0 text-sm mx-auto text-secondary">
@@ -131,6 +134,51 @@
 <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
 <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
 <script src="assets/js/soft-ui-dashboard.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+<script>
+  const loginForm = document.getElementById("login-form");
+
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    try {
+      const response = await fetch("http://localhost:8000/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          username: email,
+          password: password
+        })
+      });
+
+      if (!response.ok) {
+        alert("Credenciales incorrectas");
+        return;
+      }
+
+      const data = await response.json();
+      localStorage.setItem("access_token", data.access_token);
+
+      const decoded = jwt_decode(data.access_token);
+
+      // Redirigir según el rol
+      if (decoded.es_profesor) {
+        window.location.href = "perfil.html"; // o tu dashboard de profesor
+      } else {
+        window.location.href = "perfil.html"; // o tu vista de estudiante
+      }
+    } catch (error) {
+      console.error("Error al iniciar sesión:", error);
+      alert("Error de conexión con el servidor.");
+    }
+  });
+</script>
+
 
 </body>
 
