@@ -1,4 +1,34 @@
-<body class="g-sidenav-show bg-gray-100"> <!-- Clases para mostrar sidebar y fondo gris -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <title>
+    M.U.S.E
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,800" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="https://demos.creative-tim.com/soft-ui-dashboard/assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="https://demos.creative-tim.com/soft-ui-dashboard/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- CSS Files -->
+  <link id="pagestyle" href="./assets/css/soft-ui-dashboard.css" rel="stylesheet" />
+  <link href="./assets/css/muse.css" rel="stylesheet" />
+  <!-- Nepcha Analytics (nepcha.com) -->
+  <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+</head>
+
+
+  <!-- =============================================== -->
+  <!-- Barra Lateral (Sidenav) -->
+  <!-- =============================================== -->
+  <body class="g-sidenav-show bg-gray-100"> <!-- Clases para mostrar sidebar y fondo gris -->
  
   <!-- =============================================== -->
   <!-- Barra Lateral (Sidenav) -->
@@ -138,153 +168,111 @@
     </div>
   </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-    
-    <!-- End Navbar -->
-    <div class="container-fluid py-4">
-      <div class="row">
-        <div class="col-12">
-          <div class="card mb-4">
-            <div class="card-header pb-0">
-              <h6>Ejercicios lógica y resolución de problemas</h6>
-            </div>
-            <div class="card-body px-0 pt-0 pb-2">
-              <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
-                  
-  <td>
-    <div class="d-flex px-2 py-1">
-      <div class="d-flex flex-column justify-content-center">
-        <h6 class="mb-0 text-sm">A</h6>
-        <p class="text-xs text-secondary mb-0">Hola mundo</p>
-      </div>
-    </div>
-  </td>
-  <td></td>
-  <td class="align-middle text-center text-sm">
-    <button class="btn btn-success btn-sm" onclick="calificar('A')">Calificar ejercicio</button>
-  </td>
-  <td class="align-middle text-center"></td>
-  <td class="align-middle text-center">
-    <label class="btn btn-outline-primary btn-sm mb-0">
-      Subir PDF <input type="file" accept="application/pdf" hidden>
-    </label>
-  </td>
-</tr>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Maratón</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .progress-time-bar {
+      height: 25px;
+      background-color: #e9ecef;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .progress-time-fill {
+      height: 100%;
+      background-color: #198754;
+      text-align: center;
+      color: white;
+      white-space: nowrap;
+      line-height: 25px;
+    }
+  </style>
+</head>
 
-<tr>
-  <td>
-    <div class="d-flex px-2 py-1">
-      <div class="d-flex flex-column justify-content-center">
-        <h6 class="mb-0 text-sm">B</h6>
-        <p class="text-xs text-secondary mb-0">Islas separadas</p>
-      </div>
-    </div>
-  </td>
-  <td></td>
-  <td class="align-middle text-center text-sm">
-    <button class="btn btn-success btn-sm" onclick="calificar('B')">Calificar ejercicio</button>
-  </td>
-  <td class="align-middle text-center"></td>
-  <td class="align-middle text-center">
-    <label class="btn btn-outline-primary btn-sm mb-0">
-      Subir PDF <input type="file" accept="application/pdf" hidden>
-    </label>
-  </td>
-</tr>
+<body class="bg-light">
+<div class="container py-5">
+  <h1 class="text-center mb-4">Panel de la Maratón</h1>
 
-<tr>
-  <td>
-    <div class="d-flex px-2 py-1">
-      <div class="d-flex flex-column justify-content-center">
-        <h6 class="mb-0 text-sm">C</h6>
-        <p class="text-xs text-secondary mb-0">Multichocolate</p>
-      </div>
+  <!-- Progreso de tiempo de maratón -->
+  <div class="mb-5">
+    <h5>Tiempo restante</h5>
+    <div class="progress-time-bar">
+      <div class="progress-time-fill" id="progressTimeBar" style="width: 75%;">1h 30min restantes</div>
     </div>
-  </td>
-  <td></td>
-  <td class="align-middle text-center text-sm">
-    <button class="btn btn-success btn-sm" onclick="calificar('C')">Calificar ejercicio</button>
-  </td>
-  <td class="align-middle text-center"></td>
-  <td class="align-middle text-center">
-    <label class="btn btn-outline-primary btn-sm mb-0">
-      Subir PDF <input type="file" accept="application/pdf" hidden>
-    </label>
-  </td>
-</tr>
+  </div>
 
-<tr>
-  <td>
-    <div class="d-flex px-2 py-1">
-      <div class="d-flex flex-column justify-content-center">
-        <h6 class="mb-0 text-sm">D</h6>
-        <p class="text-xs text-secondary mb-0">Frutas desordenadas</p>
-      </div>
+  <!-- Tabla de posiciones tipo Standings -->
+  <div class="card mb-5">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Ranking</h5>
     </div>
-  </td>
-  <td></td>
-  <td class="align-middle text-center text-sm">
-    <button class="btn btn-success btn-sm" onclick="calificar('D')">Calificar ejercicio</button>
-  </td>
-  <td class="align-middle text-center"></td>
-  <td class="align-middle text-center">
-    <label class="btn btn-outline-primary btn-sm mb-0">
-      Subir PDF <input type="file" accept="application/pdf" hidden>
-    </label>
-  </td>
-</tr>
-
-<tr>
-  <td>
-    <div class="d-flex px-2 py-1">
-      <div class="d-flex flex-column justify-content-center">
-        <h6 class="mb-0 text-sm">E</h6>
-        <p class="text-xs text-secondary mb-0">Pepito</p>
-      </div>
+    <div class="card-body p-0">
+      <table class="table table-hover mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>Equipo</th>
+            <th>Resueltos</th>
+            <th>Tiempo Total</th>
+            <th>A</th><th>B</th><th>C</th><th>D</th><th>E</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Equipo 1</td><td>5</td><td>6635 min</td>
+            <td>✔ 214</td><td>✔ 237</td><td>✔ 238</td><td>✔ 3645</td><td>✔ 2281</td>
+          </tr>
+          <tr>
+            <td>Equipo 2</td><td>5</td><td>11442 min</td>
+            <td>✔ 769</td><td>✔ 1384</td><td>✔ 1354</td><td>✔ 3015</td><td>✔ 4880</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </td>
-  <td></td>
-  <td class="align-middle text-center text-sm">
-    <button class="btn btn-success btn-sm" onclick="calificar('E')">Calificar ejercicio</button>
-  </td>
-  <td class="align-middle text-center"></td>
-  <td class="align-middle text-center">
-    <label class="btn btn-outline-primary btn-sm mb-0">
-      Subir PDF <input type="file" accept="application/pdf" hidden>
-    </label>
-  </td>
-</tr>
+  </div>
 
-<tr>
-  <td>
-    <div class="d-flex px-2 py-1">
-      <div class="d-flex flex-column justify-content-center">
-        <h6 class="mb-0 text-sm">F</h6>
-        <p class="text-xs text-secondary mb-0">Globos de colores</p>
-      </div>
+  <!-- Tabla de problemas tipo Problems -->
+  <div class="card">
+    <div class="card-header bg-secondary text-white">
+      <h5 class="mb-0">Problemas</h5>
     </div>
-  </td>
-  <td></td>
-  <td class="align-middle text-center text-sm">
-    <button class="btn btn-success btn-sm" onclick="calificar('F')">Calificar ejercicio</button>
-  </td>
-  <td class="align-middle text-center"></td>
-  <td class="align-middle text-center">
-    <label class="btn btn-outline-primary btn-sm mb-0">
-      Subir PDF <input type="file" accept="application/pdf" hidden>
-    </label>
-  </td>
-</tr>
-
-</tbody>
+    <div class="card-body p-0">
+      <table class="table table-striped mb-0">
+        <thead>
+          <tr>
+            <th>Letra</th>
+            <th>Nombre</th>
+            <th>Resueltos / Intentos</th>
+            <th>Promedio de Intentos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A</td><td>Odd Man Out</td><td>6/9 (67%)</td><td>1.50</td>
+          </tr>
+          <tr>
+            <td>B</td><td>Another Brick in the Wall</td><td>5/7 (71%)</td><td>1.40</td>
+          </tr>
+          <tr>
+            <td>C</td><td>Sheba's Amoebas</td><td>5/5 (100%)</td><td>1.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 <script>
-function calificar(ejercicio) {
-  alert("Vas a calificar el ejercicio: " + ejercicio);
-}
+  // Aquí podrías usar JavaScript para reducir el ancho del tiempo restante progresivamente
+  // Simulación de reducción con setInterval (opcional para producción)
 </script>
-
-             
+</body>
+</html>
+    <!-- End Navbar -->
+    
+  </main>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
       <i class="fa fa-cog py-2"> </i>
@@ -310,7 +298,12 @@ function calificar(ejercicio) {
         </div>
         <a href="javascript:void(0)" class="switch-trigger background-color">
           <div class="badge-colors my-2 text-start">
-           
+            <span class="badge filter bg-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
           </div>
         </a>
         <!-- Sidenav Type -->
@@ -346,6 +339,7 @@ function calificar(ejercicio) {
       </div>
     </div>
   </div>
+  
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
@@ -365,4 +359,5 @@ function calificar(ejercicio) {
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/soft-ui-dashboard.min.js?v=1.1.0"></script>
 </body>
+
 </html>

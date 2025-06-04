@@ -1,6 +1,6 @@
 /* muse.css - estilos personalizados para M.U.S.E */
 :root {
-  --primary: #b58df1;
+  --primary: #cc;
   --primary-dark: #8f5de0;
   --primary-light: #c0a3f8;
 }
@@ -94,4 +94,52 @@ h1, h2, h5, h6, .h1, .h2, .h5, .h6 {
   top: 15px;
   right: 20px;
   z-index: 10;
+}
+
+
+.page-header {
+    background: linear-gradient(135deg, #b58df1, #c0a3f8) !important;
+  }
+ 
+  .mask.bg-gradient-dark {
+    background: rgba(255, 255, 255, 0.4) !important;
+  }
+ 
+  h1,
+  h5,
+  p {
+    font-family: "Inter", sans-serif;
+  }
+ 
+  input.form-control {
+    border: 1px solid #b58df1;
+    color: #4c4c4c;
+  }
+ 
+  input.form-control:focus {
+    border-color: #a678e2;
+    box-shadow: 0 0 0 0.2rem rgba(181, 141, 241, 0.25);
+  }
+ 
+  .btn.bg-gradient-dark {
+    background: linear-gradient(135deg, #a678e2, #a678e2);
+    border: none;
+  }
+ 
+  .btn.bg-gradient-dark:hover {
+    background: linear-gradient(135deg, #a678e2, #a678e2);
+  }
+ 
+  .form-check-input:checked {
+    background-color: #b58df1;
+    border-color: #b58df1;
+  }
+  .bg-morado-pastel {
+  background: linear-gradient(135deg, #a678e2, #a678e2) !important;
+  color: white;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+ }
+:root {
+  --pastel-purple: #d1b3f9;
 }
