@@ -61,20 +61,14 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = 
     
     if not usuario or not verify_password(form_data.password, usuario.password):
         raise HTTPException(status_code=401, detail="Credenciales incorrectas")   
-    access_token = create_access_token(data={"sub": usuario.correo})
-    return {"access_token": access_token, "token_type": "bearer"}
-
-@router.get("/me")
-def read_users_me(token: str = Depends(oauth2_scheme)):
-    return {"message": "Usuario autenticado", "token": token}
-
-@router.get("/me/detalle")
-def read_users_me_detalle(usuario: Usuario = Depends(get_current_user)):
-    return {
+    
+    access_token = create_access_token(data={
+        "sub": usuario.correo,
         "nombre": usuario.nombre,
-        "correo": usuario.correo,
         "es_profesor": usuario.es_profesor
-    }
+    })
+
+    return {"access_token": access_token, "token_type": "bearer"}
 
 
 

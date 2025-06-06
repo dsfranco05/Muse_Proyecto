@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Calificar Soluciones</title>
+
+  <!-- Fuente Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos base + color morado -->
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f6fb;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #6a0dad;
+      font-weight: 600;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: #ede3f5;
+      color: #6a0dad;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+      width: 100%;
+      padding: 6px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .btn-morado {
+      background-color: #c59cfc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-weight: 500;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn-morado:hover {
+      background-color: #b179f5;
+    }
+
+    a {
+      color: #6a0dad;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Soluciones para calificar</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Estudiante</th>
+        <th>Archivo</th>
+        <th>Nota</th>
+        <th>Comentario</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody id="tabla-soluciones"></tbody>
+  </table>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+  <script src="assets/js/authGuard.js"></script>
+
+  <script>
+    protegerRuta("profesor");
+
+    const queryParams = new URLSearchParams(window.location.search);
+    const problemaId = queryParams.get("problema_id");
+
+    async function cargarSoluciones() {
+      const token = localStorage.getItem("access_token");
+
+      const res = await fetch(`http://localhost:8000/problemas/soluciones/${problemaId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      const soluciones = await res.json();
+      const tabla = document.getElementById("tabla-soluciones");
+      tabla.innerHTML = "";
+
+      soluciones.forEach(sol => {
+        const fila = document.createElement("tr");
+        fila.innerHTML = `
+          <td>${sol.estudiante_id}</td>
+          <td><a href="/media/${sol.archivo}" target="_blank">Ver archivo</a></td>
+          <td><input type="number" id="nota-${sol.id}" value="${sol.calificacion ?? ''}" min="0" max="100" /></td>
+          <td><input type="text" id="comentario-${sol.id}" value="${sol.comentario ?? ''}" /></td>
+          <td><button class="btn-morado" onclick="guardarCalificacion(${sol.id})">Guardar</button></td>
+        `;
+        tabla.appendChild(fila);
+      });
+    }
+
+    async function guardarCalificacion(solucionId) {
+      const token = localStorage.getItem("access_token");
+      const nota = document.getElementById(`nota-${solucionId}`).value;
+      const comentario = document.getElementById(`comentario-${solucionId}`).value;
+
+      const res = await fetch(`http://localhost:8000/problemas/calificar_solucion/${solucionId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          calificacion: parseInt(nota),
+          comentario: comentario
+        })
+      });
+
+      const data = await res.json();
+      alert(data.mensaje || "Calificado correctamente");
+    }
+
+    window.onload = cargarSoluciones;
+  </script>
+</body>
+</html>
+
+

@@ -99,15 +99,22 @@ class ProblemaBase(BaseModel):
     descripcion: str
     puntos_problema: int
     competencia_id: int
+    archivo_pdf: Optional[str] = None  # ✅ nuevo campo
     
 class ProblemaCreate(ProblemaBase):
     pass
 
-class ProblemaResponse(ProblemaBase):
+class ProblemaResponse(BaseModel):
     id: int
+    titulo: str
+    descripcion: str
+    puntos_problema: int
+    competencia_id: int
+    archivo_pdf: Optional[str] = None
 
     class Config:
-        from_attributes = True  
+        orm_mode = True
+
 
 # ------------------------------
 # Modelos para Premios
@@ -125,3 +132,30 @@ class PremioResponse(PremioBase):
 
     class Config:
         from_attributes = True
+
+# ------------------------------
+# Modelos para Soluciones
+# ------------------------------
+class SolucionBase(BaseModel):
+    problema_id: int
+    estudiante_id: int
+    archivo: str
+    calificacion: Optional[int] = None
+    comentario: Optional[str] = None
+    fecha_subida: Optional[datetime] = None
+
+class SolucionCreate(BaseModel):
+    problema_id: int
+    estudiante_id: int
+    archivo: str
+
+class SolucionCalificar(BaseModel):
+    calificacion: int
+    comentario: Optional[str] = None
+
+class SolucionResponse(SolucionBase):
+    id: int
+
+    class Config:
+        from_attributes = True
+

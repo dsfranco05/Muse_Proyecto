@@ -138,46 +138,49 @@
 <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
 <script>
-  const loginForm = document.getElementById("login-form");
+const loginForm = document.getElementById("login-form");
 
-  loginForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
+loginForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-    try {
-      const response = await fetch("http://localhost:8000/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({
-          username: email,
-          password: password
-        })
-      });
+  try {
+    const response = await fetch("http://localhost:8000/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        username: email,
+        password: password
+      })
+    });
 
-      if (!response.ok) {
-        alert("Credenciales incorrectas");
-        return;
-      }
-
-      const data = await response.json();
-      localStorage.setItem("access_token", data.access_token);
-
-      const decoded = jwt_decode(data.access_token);
-
-      // Redirigir según el rol
-      if (decoded.es_profesor) {
-        window.location.href = "perfil.html"; // o tu dashboard de profesor
-      } else {
-        window.location.href = "perfil.html"; // o tu vista de estudiante
-      }
-    } catch (error) {
-      console.error("Error al iniciar sesión:", error);
-      alert("Error de conexión con el servidor.");
+    if (!response.ok) {
+      alert("Credenciales incorrectas");
+      return;
     }
-  });
+
+    const data = await response.json();
+    const token = data.access_token;
+    localStorage.setItem("access_token", token);
+
+    const decoded = jwt_decode(token);
+
+    // 🔁 Redirección basada en el rol decodificado
+    if (decoded.es_profesor) {
+      window.location.href = "perfilProfesor.html";
+    } else {
+      window.location.href = "perfilEstudiante.html";
+    }
+
+  } catch (error) {
+    console.error("Error al iniciar sesión:", error);
+    alert("Error de conexión con el servidor.");
+  }
+});
 </script>
+
 
 
 </body>

@@ -1,12 +1,14 @@
-from fastapi import FastAPI, APIRouter, Form, UploadFile, File
+import os
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.openapi.utils import get_openapi
-from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import HTMLResponse
+from fastapi.openapi.utils import get_openapi
+
 from typing import List
 from pydantic import BaseModel
 
-# Routers personalizados
+# Rutas
 from app.routes.auth import router as auth_router
 from app.routes.competencias import router as competencias_router
 from app.routes.problemas import router as problemas_router
@@ -15,7 +17,17 @@ from app.routes.avances import router as avances_router
 from app.routes.premios import router as premios_router
 from app.routes.resolver_problemas import router as resolver_problema_router
 
-# ✅ Instancia única
+
+# ✅ Define primero la ruta de MEDIA_DIR (fuera del app/)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MEDIA_DIR = os.path.join(BASE_DIR, "media")
+
+
+
+# ✅ Crea la carpeta si no existe
+os.makedirs(MEDIA_DIR, exist_ok=True)
+
+# ✅ Crea instancia FastAPI
 app = FastAPI(
     title="Mi API",
     version="1.0.0",
@@ -24,12 +36,8 @@ app = FastAPI(
     redoc_url="/redoc"
 )
 
-# ✅ CORS para permitir conexión desde Live Server u otros entornos
-origins = [
-    "http://localhost",
-    "http://127.0.0.1:5500"
-]
-
+# ✅ CORS
+origins = ["http://localhost", "http://127.0.0.1:5500"]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -38,7 +46,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ✅ Incluir routers
+# ✅ Monta la carpeta /media
+app.mount("/media", StaticFiles(directory=MEDIA_DIR), name="media")
+
+# ✅ Monta assets estáticos
+app.mount("/assets", StaticFiles(directory="app/frontend/assets"), name="assets")
+
+# ✅ Routers
 app.include_router(auth_router, prefix="/auth", tags=["Autenticación"])
 app.include_router(competencias_router, prefix="/competencias", tags=["Competencias"])
 app.include_router(problemas_router, prefix="/problemas", tags=["Problemas"])
@@ -52,7 +66,7 @@ app.include_router(resolver_problema_router, prefix="/resolver", tags=["Resolver
 def root():
     return {"message": "API funcionando correctamente"}
 
-# ✅ Registro de usuario (temporal, puedes moverlo a auth)
+# ✅ Registro temporal
 class RegistroUsuario(BaseModel):
     nombre: str
     email: str
@@ -61,7 +75,6 @@ class RegistroUsuario(BaseModel):
 
 @app.post("/registro")
 def registrar_usuario(datos: RegistroUsuario):
-    print(f"Datos recibidos: {datos}")
     return {"mensaje": f"Usuario {datos.nombre} registrado correctamente"}
 
 # ✅ OpenAPI personalizado
@@ -90,10 +103,7 @@ def custom_openapi():
 
 app.openapi = custom_openapi
 
-# ✅ Servir archivos estáticos (css, js, imgs)
-app.mount("/assets", StaticFiles(directory="app/frontend/assets"), name="assets")
-
-# ✅ Servir archivos HTML directamente desde app/frontend
+# ✅ Servir HTMLs directos
 @app.get("/maratonesEstudiantes", response_class=HTMLResponse)
 def estudiante():
     with open("app/frontend/maratonEstudiantes.html", "r", encoding="utf-8") as f:
@@ -103,7 +113,3 @@ def estudiante():
 def profesor():
     with open("app/frontend/maratonProfesores.html", "r", encoding="utf-8") as f:
         return f.read()
-
-
-
-

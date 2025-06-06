@@ -28,12 +28,12 @@
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 </head>
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
-   
+    
     <!-- Encabezado del Sidenav -->
     <div class="sidenav-header">
       <!-- Botón para cerrar en móviles -->
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-     
+      
       <!-- Logo y Nombre del Dashboard -->
       <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html " target="_blank">
         <img src="./assets/img/muse-logo.jpeg-removebg-preview.png" class="navbar-brand-img h-100" alt="main_logo">
@@ -43,210 +43,103 @@
 
     <!-- Separador -->
     <hr class="horizontal dark mt-0">
-   
-    <!-- Menú de Navegación -->
-    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
-      <ul class="navbar-nav">
-       
-<!-- Elemento del Menú - Página Principal -->
-<li class="nav-item">
-  <a class="nav-link" href="pagina-principal.html">
-    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-      <i class="fas fa-home text-primary" aria-hidden="true"></i>
-    </div>
-    <span class="nav-link-text ms-1">Página Principal</span>
-  </a>
-</li>
+    
+<!-- Menú de Navegación -->
+<div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
+  <ul class="navbar-nav">
 
-       
-<!-- Elemento del Menú - Avances -->
-<li class="nav-item">
-  <a class="nav-link" href="avances.html">
-    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-      <i class="fas fa-chart-line text-primary" aria-hidden="true"></i>
-    </div>
-    <span class="nav-link-text ms-1">Avances</span>
-  </a>
-</li>
-
-       
-       
-       <li class="nav-item">
-  <a class="nav-link" href="habilidades.html">
-    <div class="icon icon-shape icon-sm shadow border-radius-md bg-gradient-primary text-center me-2 d-flex align-items-center justify-content-center">
-      <i class="fas fa-clipboard-check text-white text-sm"></i>
-    </div>
-    <span class="nav-link-text ms-1">Ver Habilidades</span>
-  </a>
-</li>
-       
-               
-        <!-- Elemento del Menú - Maratones -->
-      <li class="nav-item">
-        <a class="nav-link" href="maratones.html">
-        <div class="icon icon-shape icon-sm shadow border-radius-md bg-gradient-primary text-center me-2 d-flex align-items-center justify-content-center">
-        <i class="fas fa-trophy text-white text-sm"></i>
-        </div>
-      <span class="nav-link-text ms-1">Maratones</span>
-        </a>
-        </li>
-       
-        <!-- Sección de Páginas de Cuenta -->
-        <li class="nav-item mt-3">
-          <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Paginas de cuenta</h6>
-        </li>
-       
-        <!-- Perfil -->
-      <li class="nav-item">
-        <a class="nav-link active" href="perfil.html">
+    <!-- Página Principal -->
+    <li class="nav-item">
+      <a class="nav-link" id="btn-paginaPrincipal" href="#">
         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-      <i class="fas fa-user text-primary text-sm"></i>
-          </div>
-          <span class="nav-link-text ms-1">Perfil</span>
-        </a>
-      </li>
-       
-        <!-- Iniciar Sesión -->
-        <li class="nav-item">
-          <a class="nav-link" href="inicio-sesion.html">
-            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fas fa-solid fa-rocket"></i>
-              <!-- SVG del icono -->
-            </div>
-            <span class="nav-link-text ms-1">Iniciar sesión</span>
-          </a>
-        </li>
-       
-        <!-- Registrarse -->
-        <li class="nav-item">
-          <a class="nav-link" href="registro.html">
-            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              <!-- SVG del icono -->
-            <i class="fas fa-user-plus text-primary text-sm"></i>  
-            </div>
-            <span class="nav-link-text ms-1">Registrarse</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-   
+          <i class="fas fa-home text-primary" aria-hidden="true"></i>
+        </div>
+        <span class="nav-link-text ms-1">Página Principal</span>
+      </a>
+    </li>
+
+    <!-- Avances -->
+    <li class="nav-item">
+      <a class="nav-link" id="btn-avances" href="#">
+        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <i class="fas fa-chart-line text-primary" aria-hidden="true"></i>
+        </div>
+        <span class="nav-link-text ms-1">Avances</span>
+      </a>
+    </li>
+
+    <!-- Habilidades -->
+    <li class="nav-item">
+      <a class="nav-link" id="btn-habilidades" href="#">
+        <div class="icon icon-shape icon-sm shadow border-radius-md bg-gradient-primary text-center me-2 d-flex align-items-center justify-content-center">
+          <i class="fas fa-clipboard-check text-white text-sm"></i>
+        </div>
+        <span class="nav-link-text ms-1">Ver Habilidades</span>
+      </a>
+    </li>
+
+    <!-- Maratones -->
+    <li class="nav-item">
+      <a class="nav-link" id="btn-maratones" href="#">
+        <div class="icon icon-shape icon-sm shadow border-radius-md bg-gradient-primary text-center me-2 d-flex align-items-center justify-content-center">
+          <i class="fas fa-trophy text-white text-sm"></i>
+        </div>
+        <span class="nav-link-text ms-1">Maratones</span>
+      </a>
+    </li>
+
+    <!-- Sección de Páginas de Cuenta -->
+    <li class="nav-item mt-3">
+      <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Páginas de cuenta</h6>
+    </li>
+
+    <!-- Perfil -->
+    <li class="nav-item">
+      <a class="nav-link active" id="btn-perfil" href="#">
+        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <i class="fas fa-user text-primary text-sm"></i>
+        </div>
+        <span class="nav-link-text ms-1">Perfil</span>
+      </a>
+    </li>
+
+    <!-- Iniciar Sesión -->
+    <li class="nav-item">
+      <a class="nav-link" href="inicio-sesion.html">
+        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <i class="fas fa-solid fa-rocket"></i>
+        </div>
+        <span class="nav-link-text ms-1">Iniciar sesión</span>
+      </a>
+    </li>
+
+    <!-- Registrarse -->
+    <li class="nav-item">
+      <a class="nav-link" href="registro.html">
+        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <i class="fas fa-user-plus text-primary text-sm"></i>
+        </div>
+        <span class="nav-link-text ms-1">Registrarse</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
     <!-- Pie del Sidenav -->
     <div class="sidenav-footer mx-3">
   </aside>
-     
+  
     </div>
   </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-    <!-- Navbar -->
-    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
-      <div class="container-fluid py-1 px-3">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Paginas</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Ver habilidades</li>
-          </ol>
-         
-        </nav>
-          <ul class="navbar-nav  justify-content-end">
-            <li class="nav-item d-flex align-items-center">
-            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                <div class="sidenav-toggler-inner">
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                </div>
-              </a>
-            </li>
-            <li class="nav-item px-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0">
-                <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-              </a>
-            </li>
-            <li class="nav-item dropdown pe-2 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-bell cursor-pointer"></i>
-              </a>
-              <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
-                <li class="mb-2">
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="my-auto">
-                        <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
-                      </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          <span class="font-weight-bold">New message</span> from Laur
-                        </h6>
-                        <p class="text-xs text-secondary mb-0 ">
-                          <i class="fa fa-clock me-1"></i>
-                          13 minutes ago
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="mb-2">
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="my-auto">
-                        <img src="../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
-                      </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-         
-                        </h6>
-                        <p class="text-xs text-secondary mb-0 ">
-                          <i class="fa fa-clock me-1"></i>
-                          1 day
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
-                        <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                          <title>credit-card</title>
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                              <g transform="translate(1716.000000, 291.000000)">
-                                <g transform="translate(453.000000, 454.000000)">
-                                  <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
-                                  <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
-                                </g>
-                              </g>
-                            </g>
-                          </g>
-                        </svg>
-                      </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          Payment successfully completed
-                        </h6>
-                        <p class="text-xs text-secondary mb-0 ">
-                          <i class="fa fa-clock me-1"></i>
-                          2 days
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+
     <!-- End Navbar -->
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
-              <h6>Ejercicios pensamiento algorítmico</h6>
+              <h6>Ejercicios lógica y resolución de problemas</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
@@ -258,138 +151,8 @@
                      
                    <tbody>
 
-<tbody>
-  <tr>
-    <td>
-      <div class="d-flex px-2 py-1">
-        <div class="d-flex flex-column justify-content-center">
-          <h6 class="mb-0 text-sm">A</h6>
-          <p class="text-xs text-secondary mb-0">Paso a Paso</p>
-        </div>
-      </div>
-    </td>
-    <td></td>
-    <td class="align-middle text-center text-sm">
-      <label class="btn btn-success btn-sm mb-0">
-        Subir solución ejercicio
-        <input type="file" accept="application/pdf" hidden onchange="alert('Solución A subida: ' + this.files[0].name)">
-      </label>
-    </td>
-    <td class="align-middle text-center"></td>
-    <td class="align-middle text-center">
-      <a href="pdfs/A.pdf" download class="btn btn-outline-primary btn-sm mb-0">PDF</a>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <div class="d-flex px-2 py-1">
-        <div class="d-flex flex-column justify-content-center">
-          <h6 class="mb-0 text-sm">B</h6>
-          <p class="text-xs text-secondary mb-0">Piensa como un Robot</p>
-        </div>
-      </div>
-    </td>
-    <td></td>
-    <td class="align-middle text-center text-sm">
-      <label class="btn btn-success btn-sm mb-0">
-        Subir solución ejercicio
-        <input type="file" accept="application/pdf" hidden onchange="alert('Solución B subida: ' + this.files[0].name)">
-      </label>
-    </td>
-    <td class="align-middle text-center"></td>
-    <td class="align-middle text-center">
-      <a href="pdfs/B.pdf" download class="btn btn-outline-primary btn-sm mb-0">PDF</a>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <div class="d-flex px-2 py-1">
-        <div class="d-flex flex-column justify-content-center">
-          <h6 class="mb-0 text-sm">C</h6>
-          <p class="text-xs text-secondary mb-0">Sigue la Ruta</p>
-        </div>
-      </div>
-    </td>
-    <td></td>
-    <td class="align-middle text-center text-sm">
-      <label class="btn btn-success btn-sm mb-0">
-        Subir solución ejercicio
-        <input type="file" accept="application/pdf" hidden onchange="alert('Solución C subida: ' + this.files[0].name)">
-      </label>
-    </td>
-    <td class="align-middle text-center"></td>
-    <td class="align-middle text-center">
-      <a href="pdfs/C.pdf" download class="btn btn-outline-primary btn-sm mb-0">PDF</a>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <div class="d-flex px-2 py-1">
-        <div class="d-flex flex-column justify-content-center">
-          <h6 class="mb-0 text-sm">D</h6>
-          <p class="text-xs text-secondary mb-0">Resuelve y Gana</p>
-        </div>
-      </div>
-    </td>
-    <td></td>
-    <td class="align-middle text-center text-sm">
-      <label class="btn btn-success btn-sm mb-0">
-        Subir solución ejercicio
-        <input type="file" accept="application/pdf" hidden onchange="alert('Solución D subida: ' + this.files[0].name)">
-      </label>
-    </td>
-    <td class="align-middle text-center"></td>
-    <td class="align-middle text-center">
-      <a href="pdfs/D.pdf" download class="btn btn-outline-primary btn-sm mb-0">PDF</a>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <div class="d-flex px-2 py-1">
-        <div class="d-flex flex-column justify-content-center">
-          <h6 class="mb-0 text-sm">E</h6>
-          <p class="text-xs text-secondary mb-0">Ordena las Palabras</p>
-        </div>
-      </div>
-    </td>
-    <td></td>
-    <td class="align-middle text-center text-sm">
-      <label class="btn btn-success btn-sm mb-0">
-        Subir solución ejercicio
-        <input type="file" accept="application/pdf" hidden onchange="alert('Solución E subida: ' + this.files[0].name)">
-      </label>
-    </td>
-    <td class="align-middle text-center"></td>
-    <td class="align-middle text-center">
-      <a href="pdfs/E.pdf" download class="btn btn-outline-primary btn-sm mb-0">PDF</a>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <div class="d-flex px-2 py-1">
-        <div class="d-flex flex-column justify-content-center">
-          <h6 class="mb-0 text-sm">F</h6>
-          <p class="text-xs text-secondary mb-0">Tu Mente Programa</p>
-        </div>
-      </div>
-    </td>
-    <td></td>
-    <td class="align-middle text-center text-sm">
-      <label class="btn btn-success btn-sm mb-0">
-        Subir solución ejercicio
-        <input type="file" accept="application/pdf" hidden onchange="alert('Solución F subida: ' + this.files[0].name)">
-      </label>
-    </td>
-    <td class="align-middle text-center"></td>
-    <td class="align-middle text-center">
-      <a href="pdfs/F.pdf" download class="btn btn-outline-primary btn-sm mb-0">PDF</a>
-    </td>
-  </tr>
+<tbody id="tabla-ejercicios">
+  <!-- Se llenará dinámicamente con JS -->
 </tbody>
 
 <script>
@@ -411,68 +174,7 @@ function calificar(ejercicio) {
 }
 </script>
 
-             
-  <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="fa fa-cog py-2"> </i>
-    </a>
-    <div class="card shadow-lg ">
-      <div class="card-header pb-0 pt-3 ">
-        <div class="float-start">
-          <h5 class="mt-3 mb-0">Soft UI Configurator</h5>
-          <p>See our dashboard options.</p>
-        </div>
-        <div class="float-end mt-4">
-          <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
-            <i class="fa fa-close"></i>
-          </button>
-        </div>
-        <!-- End Toggle Button -->
-      </div>
-      <hr class="horizontal dark my-1">
-      <div class="card-body pt-sm-3 pt-0">
-        <!-- Sidebar Backgrounds -->
-        <div>
-          <h6 class="mb-0">Sidebar Colors</h6>
-        </div>
-        <a href="javascript:void(0)" class="switch-trigger background-color">
-          <div class="badge-colors my-2 text-start">
-           
-          </div>
-        </a>
-        <!-- Sidenav Type -->
-        <div class="mt-3">
-          <h6 class="mb-0">Sidenav Type</h6>
-          <p class="text-sm">Choose between 2 different sidenav types.</p>
-        </div>
-        <div class="d-flex">
-          <button class="btn btn-primary w-100 px-3 mb-2 active" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
-          <button class="btn btn-primary w-100 px-3 mb-2 ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
-        </div>
-        <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-        <!-- Navbar Fixed -->
-        <div class="mt-3">
-          <h6 class="mb-0">Navbar Fixed</h6>
-        </div>
-        <div class="form-check form-switch ps-0">
-          <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
-        </div>
-        <hr class="horizontal dark my-sm-4">
-        <a class="btn bg-gradient-dark w-100" href="https://www.creative-tim.com/product/soft-ui-dashboard">Free Download</a>
-        <a class="btn btn-outline-dark w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard">View documentation</a>
-        <div class="w-100 text-center">
-          <a class="github-button" href="https://github.com/creativetimofficial/soft-ui-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/soft-ui-dashboard on GitHub">Star</a>
-          <h6 class="mt-3">Thank you for sharing!</h6>
-          <a href="https://twitter.com/intent/tweet?text=Check%20Soft%20UI%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fsoft-ui-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
-            <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
-          </a>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/soft-ui-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
-            <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
@@ -491,5 +193,120 @@ function calificar(ejercicio) {
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/soft-ui-dashboard.min.js?v=1.1.0"></script>
+
+<script>
+const competenciaId = 16; // Reemplaza con el ID real
+
+async function cargarEjercicios() {
+  try {
+    const token = localStorage.getItem("access_token");
+    const response = await fetch(`http://localhost:8000/problemas/${competenciaId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+
+    const ejercicios = await response.json();
+    const tabla = document.getElementById("tabla-ejercicios");
+    tabla.innerHTML = "";
+
+    ejercicios.forEach(ejercicio => {
+      const fila = document.createElement("tr");
+
+      // Si existe PDF
+      const tienePDF = ejercicio.archivo_pdf !== null;
+      const archivoNombre = tienePDF ? ejercicio.archivo_pdf.replace(/\\/g, "/").split("/").pop() : null;
+      const enlaceDescarga = tienePDF
+        ? `<a href="http://localhost:8000/media/problemas/${archivoNombre}" download class="btn btn-outline-primary btn-sm mb-0">PDF</a>`
+        : `<span class="text-muted">No disponible</span>`;
+
+fila.innerHTML = `
+  <td>
+    <div class="d-flex px-2 py-1">
+      <div class="d-flex flex-column justify-content-center">
+        <h6 class="mb-0 text-sm">${ejercicio.titulo}</h6>
+        <p class="text-xs text-secondary mb-0">${ejercicio.descripcion}</p>
+      </div>
+    </div>
+  </td>
+  <td></td>
+  <td class="align-middle text-center text-sm">
+    <label class="btn btn-success btn-sm mb-0">
+      Subir solución
+      <input type="file" accept=".py,.cpp" hidden onchange="subirSolucion(${ejercicio.id}, this.files[0])">
+    </label>
+  </td>
+  <td class="align-middle text-center"></td>
+  <td class="align-middle text-center">
+    ${enlaceDescarga}
+  </td>
+`;
+
+tabla.appendChild(fila);
+
+    });
+
+  } catch (error) {
+    console.error("Error al cargar ejercicios:", error);
+  }
+}
+
+async function subirSolucion(problemaId, archivo) {
+  const formData = new FormData();
+  formData.append("archivo", archivo);
+
+  const token = localStorage.getItem("access_token");
+
+  try {
+    const res = await fetch(`http://localhost:8000/problemas/subir_solucion/${problemaId}`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+      body: formData
+    });
+
+    const data = await res.json();
+    alert(data.mensaje || "Solución subida correctamente");
+  } catch (error) {
+    console.error("Error al subir solución:", error);
+    alert("Ocurrió un error al subir la solución");
+  }
+}
+
+window.onload = cargarEjercicios;
+
+</script>
+
+<!-- Librería para decodificar JWT -->
+<script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+
+<!-- Script de protección -->
+<script src="assets/js/authGuard.js"></script>
+
+<script>
+  protegerRuta("estudiante");
+</script>
+
+<script>
+  redirigirMenuPorRol({
+    profesor: {
+      paginaPrincipal: "paginaPrincipal.html",
+      avances: "avances.html",
+      habilidades: "habilidadesProfesores.html",
+      maratones: "maratonesProfesores.html",
+      perfil: "perfilProfesor.html"
+    },
+    estudiante: {
+      paginaPrincipal: "paginaPrincipal.html",
+      avances: "avances.html",
+      habilidades: "habilidadesEstudiantes.html",
+      maratones: "maratonesEstudiantes.html",
+      perfil: "perfilEstudiante.html"
+    }
+  });
+</script>
+
+
 </body>
 </html>
